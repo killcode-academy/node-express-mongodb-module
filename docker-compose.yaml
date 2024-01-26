@@ -1,0 +1,31 @@
+version: '3'
+services:
+  api-server:
+    image: mern-backernd
+    container_name: api-server-cont
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    ports:
+      - '8000:8000'
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - '27018:27017'
+    container_name: mongo-cont
+    networks:
+      - mern-app
+    volumes:
+      - mongo-data:/data/db
+      - mongo-data:/data/configdb
+networks:
+  mern-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
