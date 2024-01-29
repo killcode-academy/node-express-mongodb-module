@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
 import logger from '../utils/logger.js';
 
+const db = mongoose.connection;
 const mongodbConnect = () => {
   mongoose.connect(
     `${process.env.MONGO_ADDRESS}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`
   );
+  logger.info(db.readyState);
 
   // mongoose.connect(
   //   `mongodb+srv://mern:Faroogh@mernauth.0fcldjo.mongodb.net/mern-auth?retryWrites=true&w=majority`
@@ -13,7 +15,7 @@ const mongodbConnect = () => {
 
 mongoose.connection.on('error', (err) => {
   logger.error(`MongoDb Connection error: ${err}`);
-  process.exit(1);
+  // process.exit(1);
 });
 
 mongoose.connection.once('open', () => {
