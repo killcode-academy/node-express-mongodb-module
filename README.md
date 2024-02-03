@@ -6,7 +6,7 @@ To deploy a MERN (MongoDB, Express.js, React, Node.js) stack application using D
 
 - Pull Image from Docker Hub:
 
-        $ docker pull inventerlord/mern-backed
+      docker pull inventerlord/mern-backed
 
 ## Step 2
 
@@ -57,6 +57,6 @@ Run in web browser to create admin and user roles
 
 - Run Docker Compose
 
-  `$ docker-compose up -d`
+      docker-compose up -d
 
 - Execute this command to start the Docker containers in the background.
