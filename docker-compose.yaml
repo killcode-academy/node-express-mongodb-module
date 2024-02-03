@@ -1,11 +1,8 @@
 version: '3'
 services:
   api-server:
-    image: mern-backernd
+    image: inventerlord/mern-backed
     container_name: api-server-cont
-    build:
-      context: ./backend
-      dockerfile: ./Dockerfile
     ports:
       - '8000:8000'
     networks:
